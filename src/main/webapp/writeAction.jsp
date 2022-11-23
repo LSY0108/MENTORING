@@ -9,7 +9,6 @@
 	String userID = null;
 	String bbsTitle = null;
 	String bbsContent = null;
-
 	if (session.getAttribute("userID") != null){
 		userID = (String)session.getAttribute("userID");
 	}
@@ -19,7 +18,6 @@
 	if (request.getParameter("bbsContent") != null) {
 		bbsContent = (String) request.getParameter("bbsContent");
 	}
-
 	//로그인을 한 사람만 글을 쓸 수 있도록 코드 수정
 	if (userID == null) {
 		PrintWriter script = response.getWriter();

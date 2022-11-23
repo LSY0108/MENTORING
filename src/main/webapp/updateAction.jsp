@@ -9,7 +9,6 @@
 	String userID = null;
 	String bbsTitle = null;
 	String bbsContent = null;
-
 	if (session.getAttribute("userID") != null){
 		userID = (String)session.getAttribute("userID");
 	}
@@ -19,7 +18,6 @@
 	if (request.getParameter("bbsContent") != null) {
 		bbsContent = (String) request.getParameter("bbsContent");
 	}
-
 	
 	if (userID == null) {
 		PrintWriter script = response.getWriter();

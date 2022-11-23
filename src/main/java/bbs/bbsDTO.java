@@ -7,7 +7,9 @@ public class bbsDTO {
 	private String userID;
 	private String bbsDate;
 	private String bbsContent;
+	private int bbsCount;
 	private int bbsAvailable;
+	private int viewcount;
 	
 	public int getBbsID() {
 		return bbsID;
@@ -39,11 +41,23 @@ public class bbsDTO {
 	public void setBbsContent(String bbsContent) {
 		this.bbsContent = bbsContent;
 	}
+	public int getBbsCount() {
+		return bbsCount;
+	}
+	public void setBbsCount(int bbsCount) {
+		this.bbsCount = bbsCount;
+	}
 	public int getBbsAvailable() {
 		return bbsAvailable;
 	}
 	public void setBbsAvailable(int bbsAvailable) {
 		this.bbsAvailable = bbsAvailable;
+	}
+	public int getViewcount() {
+		return viewcount;
+	}
+	public void setViewcount(int viewcount) {
+		this.viewcount = viewcount;
 	}
 	
 }

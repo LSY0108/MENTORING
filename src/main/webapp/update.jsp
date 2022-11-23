@@ -19,55 +19,43 @@ header {
 	background-repeat: no-repeat;
 	background-position: right center;
 }
-
 header nav {
 	float: right;
 	width: 100%;
 	margin-top: 85px;
 }
-
 nav ul {
 	list-style-type: none;
 }
-
 nav ul li {
 	display: inline;
 	float: right;
 	font-weight: bold;
 	margin: 15px;
 }
-
 nav ul li a {
 	color: black;
 	text-decoration: none;
 }
-
 a:hover {
 	color: plum;
 }
-
 footer p {
 	padding: 20px;
 }
-
 h1 {
 	text-align: left;
 	margin: 30px;
 	font-size: 3.5em;
 	color: #353535;
 }
-
 section {
 	float: left;
 	margin-left: 250px;
 }
-
-
-
 footer p {
 	padding: 10px;
 }
-
 footer {
 	clear: both;
 	width: 800px;

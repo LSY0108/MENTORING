@@ -130,6 +130,7 @@ With My Pet</pre>
 					<th style="background-color: grey; text-align: center;">제목</th>
 					<th style="background-color: grey; text-align: center;">작성자</th>
 					<th style="background-color: grey; text-align: center;">작성일</th>
+					<th style="background-color: grey; text-align: center;">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -144,6 +145,7 @@ With My Pet</pre>
 						<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>")%></a></td>
 						<td><%= list.get(i).getUserID()%></td>
 						<td><%= list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13) + "시" + list.get(i).getBbsDate().substring(14,16) + "분"%></td>
+						<td><%=list.get(i).getViewcount()%></td>
 					</tr>
 					
 			<%

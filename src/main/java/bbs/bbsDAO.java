@@ -1,6 +1,6 @@
 package bbs;
 
-import java.sql.Connection;	
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import Util.DatabaseUtil;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ public class bbsDAO {
 	private ResultSet rs;
 	
 	public int write(String bbsTitle, String userID, String bbsContent) {
-		String SQL = "INSERT INTO bbs VALUES (?,?,?,?,?,?,?)";
+		String SQL = "INSERT INTO bbs VALUES (?,?,?,?,?,?,?,0)";
 		try {
 			// 각각의 데이터를 실제로 넣어준다.
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -80,7 +80,9 @@ public class bbsDAO {
 				bbs.setUserID(rs.getString(3));
 				bbs.setBbsDate(rs.getString(4));
 				bbs.setBbsContent(rs.getString(5));
-				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsCount(rs.getInt(6));
+				bbs.setBbsAvailable(rs.getInt(7));
+				bbs.setViewcount(rs.getInt(8));
 				list.add(bbs);
 			}
 		} catch(Exception e) {
@@ -118,7 +120,9 @@ public class bbsDAO {
 				bbs.setUserID(rs.getString(3));
 				bbs.setBbsDate(rs.getString(4));
 				bbs.setBbsContent(rs.getString(5));
-				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsAvailable(rs.getInt(7));
+				bbs.setViewcount(rs.getInt(8));
+				
 				return bbs;
 			}
 		} catch (Exception e) {
@@ -153,6 +157,20 @@ public class bbsDAO {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	
+	//조회수 업데이트
+	public int viewcountUpdate(int bbsID) {
+		String SQL = "update BBS set viewcount = viewcount + 1 where bbsID = ?";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate();			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;//데이터베이스 오류
 	}
 	
 }

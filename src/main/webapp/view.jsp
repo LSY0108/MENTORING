@@ -82,6 +82,7 @@ footer {
 
 
 <body>
+	
 	<%
 	String userID = null;
 	if (session.getAttribute("userID") != null) {
@@ -99,6 +100,10 @@ footer {
 		script.println("</script>");
 	}
 		bbsDTO bbs = new bbsDAO().getBbs(bbsID);
+		
+		//조회수
+		bbsDAO B = new bbsDAO();
+		B.viewcountUpdate(bbsID);
 	%>
 
 
@@ -164,6 +169,10 @@ With My Pet</pre>
                   <tr>
                    		<td>내용</td>
                    		<td colspan="2" style="min-height: 200px; text-align:left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
+                  </tr>
+                  <tr>
+                  	<td>조회수</td>
+                  	<td colspan="2"><%=bbs.getViewcount()%></td>
                   </tr>
                </tbody>
             </table>
